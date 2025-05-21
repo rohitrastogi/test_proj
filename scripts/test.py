@@ -1,5 +1,5 @@
 import polars as pl
-from test_proj.polars_plugins.pig_latin import pig_latinnify
+import test_proj.polars_plugins.pig_latin # noqa: F401 — needed for plugin registration
 
 
 df = pl.DataFrame(
@@ -7,5 +7,6 @@ df = pl.DataFrame(
         "english": ["this", "is", "not", "pig", "latin"],
     }
 )
-result = df.with_columns(pig_latin=pig_latinnify("english"))
+result = df.with_columns(pig_latin=pl.col("english").pig_latin.do_pig_latin())
 print(result)
+print("yoooo")

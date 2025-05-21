@@ -12,3 +12,8 @@ dependencies = ["polars>=1.20.0"]
 [tool.maturin]
 python-source = "src"
 module-name = "test_proj._polars_plugins"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3.5",
+]
